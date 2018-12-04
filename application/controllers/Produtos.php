@@ -185,8 +185,14 @@ class Produtos extends MY_Controller {
 
     public function list() {
         require_env( [ 'client' ] );
-        $clis = $this->model->findAll();
-        return resolve( $clis ? $clis : [] );
+        $prods = $this->model->findAll();
+        return resolve( $prods ? $prods : [] );
+    }
+
+    public function list_final_estoque() {
+        require_env( [ 'client' ] );
+        $prods = $this->model->estoqueFinal()->findAll();
+        return resolve( $prods ? $prods : [] );
     }
 
 }

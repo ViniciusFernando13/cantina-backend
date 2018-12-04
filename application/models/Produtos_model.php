@@ -20,6 +20,11 @@ class Produtos_model extends MY_Model {
         parent::__construct();
     }
 
+    public function estoqueFinal() {
+        $this->db->where('estoque <= 5');
+        return $this;
+    }
+
 }
 
 // End of file

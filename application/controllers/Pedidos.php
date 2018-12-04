@@ -97,6 +97,12 @@ class Pedidos extends MY_Controller {
         return resolve( $pedidos ? $pedidos : [] );
     }
 
+    public function list_ultimo_mes() {
+        require_env( [ 'client' ] );
+        $pedidos = $this->model->listPeriodo()->findAll();
+        return resolve( $pedidos ? $pedidos : [] );
+    }
+
     public function list_itens( $idPedido ) {
         require_env( [ 'client' ] );
         $itens = $this->modelItens->findByPedido( $idPedido );

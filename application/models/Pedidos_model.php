@@ -34,6 +34,11 @@ class Pedidos_model extends MY_Model {
         } else return false;
     }
 
+    public function listPeriodo() {
+        $this->db->where( "data > '" .date('Y-m-d H:i:s', strtotime( date( 'd-m-Y H:i:s', time() ) ." - 31 day") ) ."'" );
+        return $this;
+    }
+
 }
 
 // End of file
